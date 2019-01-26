@@ -1,28 +1,36 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import axios from 'axios';
+
+import Title from './components/Title';
+import CrewApplicants from './components/CrewApplicants';
+import Form from "./components/Form";
+import config from './config';
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
-}
+    /*Initialisation of state*/
+    constructor(props){
+        super(props);
+        this.state = {results:[]};
+    }
+    componentDidMount() {
+        /*Data sources URL:*/
+        axios.get(config.apiUrl)
+            .then(res => this.setState(res.data));
+
+    }
+
+    render(){
+        return (
+          <div>
+              <Title />
+              <Form getFilterData={this.getFilterData}/>
+              <CrewApplicants stateCrewApplicants={this.state.results} />
+          </div>
+        );
+      }
+};
+
 
 export default App;
+
+
