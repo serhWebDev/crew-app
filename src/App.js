@@ -51,7 +51,7 @@ class App extends Component {
           <div>
               <Title />
               <Form getFilterData={this.getFilterData}/>
-              <CrewApplicants stateCrewApplicants={this.state.results} statefilterData={this.state.filterData}/>
+              <CrewApplicants crewApplicants={this.state.results} statefilterData={this.state.filterData}/>
           </div>
         );
       }
