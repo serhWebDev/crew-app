@@ -7,7 +7,7 @@ class AppliedApplicants extends Component {
         return (
             <div className="col s12 m4 l4">
                 <h6 className="center-align"><b>Applied</b></h6>
-                <ApplicantsList crewapl={this.props.crewlist}/>
+                <ApplicantsList stateCrewApplicants={this.props.stateCrewApplicants} statefilterData={this.props.statefilterData}/>
             </div>
         );
     }

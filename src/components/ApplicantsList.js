@@ -5,7 +5,7 @@ import CrewApplicantCard from "./CrewApplicantCard";
 
 class ApplicantsList extends Component {
     render() {
-        return this.props.crewapl.map((e) => (
+        return this.props.stateCrewApplicants.map((e) => (
             <CrewApplicantCard
                 key={uuid.v4()}
                 picture={e.picture.medium}

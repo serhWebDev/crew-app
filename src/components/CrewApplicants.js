@@ -8,7 +8,7 @@ class CrewApplicants extends Component {
     render() {
         return (
             <div className="row">
-                <AppliedApplicants crewlist={this.props.stateCrewApplicants}/>
+                <AppliedApplicants stateCrewApplicants={this.props.stateCrewApplicants} statefilterData={this.props.statefilterData}/>
                 <InterviewingApplicants />
                 <HiredApplicants />
             </div>

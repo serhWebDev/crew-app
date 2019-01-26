@@ -8,6 +8,7 @@ const arrowStyle = {
     color: 'white',
     borderRadius: '50%'
 };
+
 class CrewApplicantCard extends Component {
     render() {
         return (
