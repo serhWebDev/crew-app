@@ -46,6 +46,7 @@ class App extends Component {
         axios.get(config.apiUrl)
             .then(res => this.setState(res.data));
     }
+
     render(){
         return (
           <div>
@@ -56,7 +57,6 @@ class App extends Component {
         );
       }
 };
-
 
 export default App;
 

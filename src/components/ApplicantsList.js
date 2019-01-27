@@ -3,6 +3,8 @@ import uuid from 'uuid';
 
 import CrewApplicantCard from "./CrewApplicantCard";
 
+
+
 class ApplicantsList extends Component {
     render() {
         return this.props.crewApplicants.map((e) => (
