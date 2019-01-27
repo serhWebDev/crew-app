@@ -36,7 +36,7 @@ class App extends Component {
                 filterCity: undefined,
                 filterName: undefined
             },
-            results:[]
+            candidates:[]
         };
     }
 
@@ -44,7 +44,10 @@ class App extends Component {
     componentDidMount() {
         /*Data sources URL:*/
         axios.get(config.apiUrl)
-            .then(res => this.setState(res.data));
+            .then(res => this.setState({
+                candidates: res.data.results
+            }));
+        console.log(this.state)
     }
 
     render(){
@@ -52,7 +55,7 @@ class App extends Component {
           <div>
               <Title />
               <Form getFilterData={this.getFilterData}/>
-              <CrewApplicants crewApplicants={this.state.results} statefilterData={this.state.filterData}/>
+              <CrewApplicants crewApplicants={this.state.candidates} statefilterData={this.state.filterData}/>
           </div>
         );
       }
