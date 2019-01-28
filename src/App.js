@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
+/*import of components*/
 import Title from './components/Title';
 import CrewApplicants from './components/CrewApplicants';
 import Form from "./components/Form"
@@ -11,7 +11,9 @@ class App extends Component {
     /*geting Filter Data*/
     getFilterData = async (e) => {
         e.preventDefault();
+        /*geting filterCity*/
         const filterCity = e.target.elements.filterCity.value.toLowerCase();
+        /*checking City*/
         if (filterCity === '') {
             this.setState({
                 filterCity: 'nofilt'
@@ -21,7 +23,9 @@ class App extends Component {
                 filterCity: filterCity
             })
         }
+        /*geting filterName*/
         const filterName = e.target.elements.filterName.value.toLowerCase();
+        /*checking Name*/
         if (filterName === '') {
             this.setState({
                 filterName: 'nofilt'
@@ -42,6 +46,7 @@ class App extends Component {
             candidates: []
         };
     };
+
     /*geting API Data*/
     componentWillMount() {
         /*Data sources URL:*/

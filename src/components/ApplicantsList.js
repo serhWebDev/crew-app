@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+/*import of components*/
 import CrewApplicantCard from "./CrewApplicantCard";
 
 class ApplicantsList extends Component {
@@ -15,7 +15,6 @@ class ApplicantsList extends Component {
         let requiredStatus = this.props.requiredStatus;
         let filterCity = this.props.filterCity;
         let filterName = this.props.filterName;
-
 
         return this.props.crewApplicants.map((e) => {
             if (requiredStatus === e.status && ((filterCity === 'nofilt' || filterCity === e.city) && (filterName === 'nofilt' || filterName === e.name.firstName))) {

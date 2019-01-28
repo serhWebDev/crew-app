@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+/*import of components*/
 import ApplicantsList from "./ApplicantsList";
 
 class HiredApplicants extends Component {

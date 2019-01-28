@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+/*import of components*/
 import AppliedApplicants from './AppliedApplicants';
 import InterviewingApplicants from './InterviewingApplicants';
 import HiredApplicants from './HiredApplicants';
