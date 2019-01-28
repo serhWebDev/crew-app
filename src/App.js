@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-/*import uuid from 'uuid';*/
 
 import Title from './components/Title';
 import CrewApplicants from './components/CrewApplicants';
 import Form from "./components/Form"
-/* config*/
 import config from './config';
 
 class App extends Component {
@@ -14,38 +12,33 @@ class App extends Component {
     getFilterData = async (e) => {
         e.preventDefault();
         const filterCity = e.target.elements.filterCity.value.toLowerCase();
-        const filterName = e.target.elements.filterName.value.toLowerCase();
-        /*if (filterCity!=='') {
-            console.log('filterByCity: '+filterCity);
-        };
-        if (filterName!=='') {
-            console.log('filterByName: '+filterName);
-        };*/
         if (filterCity === '') {
             this.setState({
-                filterData: {
-                    filterCity: 'nofilt',
-                    filterName: 'nofilt'
-                }
+                filterCity: 'nofilt'
             })
         } else {
             this.setState({
-                filterData: {
-                    filterCity: filterCity,
-                    filterName: filterName
-                }
+                filterCity: filterCity
             })
         }
-    }
+        const filterName = e.target.elements.filterName.value.toLowerCase();
+        if (filterName === '') {
+            this.setState({
+                filterName: 'nofilt'
+            })
+        } else {
+            this.setState({
+                filterName: filterName
+            })
+        }
+    };
 
     /*Initialisation of state*/
     constructor(props){
         super(props);
         this.state = {
-            filterData: {
-                filterCity: 'nofilt',
-                filterName: 'nofilt'
-            },
+            filterCity: 'nofilt',
+            filterName: 'nofilt',
             candidates: []
         };
     };
@@ -77,7 +70,8 @@ class App extends Component {
               <Title/>
               <Form getFilterData={this.getFilterData}/>
               <CrewApplicants crewApplicants={this.state.candidates}
-                              stateFilterData={this.state.filterData}
+                              filterCity={this.state.filterCity}
+                              filterName={this.state.filterName}
               />
           </div>
         );

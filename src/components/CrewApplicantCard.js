@@ -20,28 +20,22 @@ class CrewApplicantCard extends Component {
         switch (this.state.status) {
             case 'Hired':
                 this.setState({status: 'Interviewing'});
-                /*console.log('Action: Left - previousStatus '+ this.state.status);*/
                 break;
             case 'Interviewing':
                 this.setState({status: 'Applied'});
-                /*console.log('Action: Left - previousStatus '+ this.state.status);*/
                 break;
             default:
-                /*console.log('Action: Left - status is alredy '+ this.state.status);*/
         }
     };
     nextStatus = () => {
         switch (this.state.status) {
             case 'Applied':
                 this.setState({status: 'Interviewing'});
-                /*console.log('Action: Right - previousStatus '+ this.state.status);*/
                 break;
             case 'Interviewing':
                 this.setState({status: 'Hired'});
-                /*console.log('Action: Right - previousStatus '+ this.state.status);*/
                 break;
             default:
-                /*console.log('Action: Right - status is alredy '+ this.state.status);*/
         }
     };
     render() {

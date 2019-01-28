@@ -8,7 +8,8 @@ class AppliedApplicants extends Component {
             <div className="col s12 m4 l4">
                 <h6 className="center-align"><b>{this.props.requiredStatus}</b></h6>
                 <ApplicantsList crewApplicants={this.props.crewApplicants}
-                                stateFilterData={this.props.stateFilterData}
+                                filterCity={this.props.filterCity}
+                                filterName={this.props.filterName}
                                 requiredStatus={this.props.requiredStatus}
                 />
             </div>

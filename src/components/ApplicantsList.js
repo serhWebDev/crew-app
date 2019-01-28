@@ -6,23 +6,19 @@ class ApplicantsList extends Component {
 
     componentWillReceiveProps(nextprops) {
         this.setState({
-            filterCity: this.props.stateFilterData.filterCity,
-            filterName: this.props.stateFilterData.filterName
+            filterCity: this.props.filterCity,
+            filterName: this.props.filterName
         });
-
-        /*console.log(this.props.stateFilterData.filterCity + '_filterCity');
-        console.log(this.props.stateFilterData.filterName + '_filterName');
-        console.log('componentWillReceiveProps');*/
     }
 
     render() {
         let requiredStatus = this.props.requiredStatus;
-        let filterCity = this.props.stateFilterData.filterCity;
-        let filterName = this.props.stateFilterData.filterName;
+        let filterCity = this.props.filterCity;
+        let filterName = this.props.filterName;
 
-        /*console.log(filterCity + ' = inrender');*/
+
         return this.props.crewApplicants.map((e) => {
-            if (requiredStatus === e.status && (filterCity === 'nofilt' || filterCity === e.city)){
+            if (requiredStatus === e.status && ((filterCity === 'nofilt' || filterCity === e.city) && (filterName === 'nofilt' || filterName === e.name.firstName))) {
                 return (<CrewApplicantCard
                     key={e.id}
                     picture={e.avatar}
