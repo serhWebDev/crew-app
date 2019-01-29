@@ -113,6 +113,11 @@ class App extends Component {
     /*geting API Data*/
     componentWillMount() {
         /*Data sources URL:*/
+        function randomApplicantStatus(firstStatusId, lastStatusId) {
+            var rand = firstStatusId + Math.random() * (lastStatusId - firstStatusId);
+            rand = Math.round(rand);
+            return rand;
+        }
         axios.get(config.apiUrl)
             .then(res => this.setState({
                 candidates: res.data.results.map( function(el) {
@@ -125,7 +130,7 @@ class App extends Component {
                             'lastName': el.name.last,
                         },
                         city: el.location.city,
-                        status: applicStatus[0]
+                        status: applicStatus[randomApplicantStatus(0, applicStatus.length-1)]
                     };
                     return applicant;
                 })

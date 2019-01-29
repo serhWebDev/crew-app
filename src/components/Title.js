@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
-const titleStyle = {margin: '0'};
+
+const titleStyle = {
+    margin: '0',
+    paddingTop: '10px'
+};
+
 class Title extends Component {
     render() {
         return (
