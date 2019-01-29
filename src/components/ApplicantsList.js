@@ -20,7 +20,7 @@ class ApplicantsList extends Component {
             if (requiredStatus === e.status && ((filterCity === 'nofilt' || filterCity === e.city) && (filterName === 'nofilt' || filterName === e.name.firstName))) {
                 return (<CrewApplicantCard
                         key={e.id}
-                        idInArr={i}
+                        id={e.id}
                         picture={e.avatar}
                         firstname={e.name.firstName}
                         lastname={e.name.lastName}

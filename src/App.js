@@ -39,8 +39,8 @@ class App extends Component {
         }
     };
 
-    previousStatus = async (i)  => {
-        i.preventDefault();
+    previousStatus = async (e)  => {
+        e.preventDefault();
         function checkingStatusLeft(currentStatusLeft) {
             switch (currentStatusLeft) {
                 case 'Hired':
@@ -69,8 +69,8 @@ class App extends Component {
                 }
             })});
     };
-    nextStatus = async (i) => {
-        i.preventDefault();
+    nextStatus = async (e) => {
+        e.preventDefault();
         function checkingStatusRight(currentStatusRight) {
             switch (currentStatusRight) {
                 case 'Applied':

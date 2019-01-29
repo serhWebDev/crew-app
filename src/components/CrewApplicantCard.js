@@ -26,16 +26,15 @@ class CrewApplicantCard extends Component {
                         <div className="col s12 m7">
                             <h6 style={textStyle}><b>{this.props.firstname} {this.props.lastname}</b></h6>
                             <p style={textStyle}>{this.props.city}</p>
-                            <p>Status: <span>{this.state.status}</span></p>
+                            {/*<p>Status: <span>{this.state.status}</span></p>*/}
 
-                            <button onClick={this.props.previousStatus}
-                                    style={arrowStyle} >
-                                <i className="material-icons">keyboard_arrow_left</i>
-                            </button>
-                            <button onClick={this.props.nextStatus}
-                                    style={arrowStyle}>
-                                <i className="material-icons">keyboard_arrow_right</i>
-                            </button>
+                                <i className="material-icons left"
+                                   onClick={this.props.previousStatus}
+                                   style={arrowStyle}>keyboard_arrow_left</i>
+
+                                <i className="material-icons right"
+                                   onClick={this.props.nextStatus}
+                                   style={arrowStyle}>keyboard_arrow_right</i>
                         </div>
                     </div>
                 </div>
