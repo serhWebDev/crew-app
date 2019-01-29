@@ -53,24 +53,24 @@ Description of functions and components:
 6. `componentWillMount()` - Lifecycle method
 7. `randomApplicantStatus` - Random status assignment for applicants.  ***! I have make so because, in API answer i do not found some status for applicants. !***
 
-#### 1. Form - component:
+##### 2. Form - component:
 This component show two fields for input, "Name" and "City", for filtering applicants by these criteria. And then passes the obtained values to the parent component "App".
 
-##### 2. CrewApplicants - component:
+##### 3. CrewApplicants - component:
 This component show applikants cards.
 
-##### 3. AppliedApplicants - component:
+##### 4. AppliedApplicants - component:
 This component show header with title name applikants card that have status "Applied".
 
-##### 4. InterviewingApplicants - component:
+##### 5. InterviewingApplicants - component:
 This component show header with title name applikants card that have status "Interviewing".
 
-##### 5. HiredApplicants - component:
+##### 6. HiredApplicants - component:
 This component show header with title name applikants card that have status "Hired".
 
-##### 6. ApplicantsList - component:
+##### 7. ApplicantsList - component:
 This component show applikant cards that satisfy the filters by city or first name or both of them and a required applikant-status received in props.
 
-##### 7. CrewApplicantCard - component:
+##### 8. CrewApplicantCard - component:
 This component is showing relevant information about the applicant: Photo, Name, City, current application status and buttons for changing status.
 
