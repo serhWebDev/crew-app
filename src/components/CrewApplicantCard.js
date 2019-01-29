@@ -15,35 +15,6 @@ class CrewApplicantCard extends Component {
         super(props);
         this.state = {status: this.props.status};
     }
-
-    previousStatus = () => {
-        switch (this.state.status) {
-            case 'Hired':
-                this.setState({status: 'Interviewing'});
-                break;
-            case 'Interviewing':
-                this.setState({status: 'Applied'});
-                break;
-            case 'Applied':
-                this.setState({status: 'Applied'});
-                break;
-            default:
-        }
-    };
-    nextStatus = () => {
-        switch (this.state.status) {
-            case 'Applied':
-                this.setState({status: 'Interviewing'});
-                break;
-            case 'Interviewing':
-                this.setState({status: 'Hired'});
-                break;
-            case 'Hired':
-                this.setState({status: 'Hired'});
-                break;
-            default:
-        }
-    };
     render() {
         return (
             <div className="col s12">
