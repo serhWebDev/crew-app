@@ -67,7 +67,7 @@ This component show header with title name applikants card that have status "Hir
 
 ####ApplicantsList - component
 
-This component show applikant cards that satisfy the filters by city or first name or both of them and a required applikant-status received in 'props'.
+This component show applikant cards that satisfy the filters by city or first name or both of them and a required applikant-status received in props.
 
 ####CrewApplicantCard - component
 
