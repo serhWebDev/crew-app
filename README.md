@@ -43,7 +43,8 @@ Project structure
 Description of functions and components:
 --------------------------------------------------------------------------------------------
 
-####App - component
+##### 1. App-component:
+
 1. `getFilterData` - The function that gets the values from filter by name and city.
 1. `previousStatus` - The function which checks the status of the applicant's and assigns it the value of the previous status, "Applied" or "Interviewing".
 3. `checkingStatusLeft` - Checking the current value of status in previousStatus function.
@@ -52,31 +53,24 @@ Description of functions and components:
 6. `componentWillMount()` - Lifecycle method
 7. `randomApplicantStatus` - Random status assignment for applicants.  ***! I have make so because, in API answer i do not found some status for applicants. !***
 
-####Form - component
-
+#### 1. Form - component:
 This component show two fields for input, "Name" and "City", for filtering applicants by these criteria. And then passes the obtained values to the parent component "App".
 
-####CrewApplicants - component
-
+##### 2. CrewApplicants - component:
 This component show applikants cards.
 
-####AppliedApplicants - component
-
+##### 3. AppliedApplicants - component:
 This component show header with title name applikants card that have status "Applied".
 
-####InterviewingApplicants - component
-
+##### 4. InterviewingApplicants - component:
 This component show header with title name applikants card that have status "Interviewing".
 
-####HiredApplicants - component
-
+##### 5. HiredApplicants - component:
 This component show header with title name applikants card that have status "Hired".
 
-####ApplicantsList - component
-
+##### 6. ApplicantsList - component:
 This component show applikant cards that satisfy the filters by city or first name or both of them and a required applikant-status received in props.
 
-####CrewApplicantCard - component
-
+##### 7. CrewApplicantCard - component:
 This component is showing relevant information about the applicant: Photo, Name, City, current application status and buttons for changing status.
 
