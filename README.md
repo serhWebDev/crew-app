@@ -20,6 +20,13 @@ Builds the app for production to the `build` folder.
 Project structure
 --------------------------------------------------------------------------------------------
 
+#### Extra dependencies:
+
+1. axios - Promise based HTTP client for the browser and node.js
+--------------------------------------------------------------------------------------------
+
+#### Components:
+
 |Component name         | Description
 |-----------------------|--------------------------------------------------------------------
 |config                 | Сonfiguration file, URL for getting response by API
