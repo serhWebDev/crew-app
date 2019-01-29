@@ -16,16 +16,20 @@ class ApplicantsList extends Component {
         let filterCity = this.props.filterCity;
         let filterName = this.props.filterName;
 
-        return this.props.crewApplicants.map((e) => {
+        return this.props.crewApplicants.map((e, i) => {
             if (requiredStatus === e.status && ((filterCity === 'nofilt' || filterCity === e.city) && (filterName === 'nofilt' || filterName === e.name.firstName))) {
                 return (<CrewApplicantCard
-                    key={e.id}
-                    picture={e.avatar}
-                    city={e.city}
-                    firstname={e.name.firstName}
-                    lastname={e.name.lastName}
-                    status={e.status}
-                />)
+                        key={e.id}
+                        idInArr={i}
+                        picture={e.avatar}
+                        firstname={e.name.firstName}
+                        lastname={e.name.lastName}
+                        city={e.city}
+                        status={e.status}
+                        nextStatus={this.props.nextStatus}
+                        previousStatus={this.props.previousStatus}
+                    />
+                )
             }
         })
     }

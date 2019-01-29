@@ -11,6 +11,8 @@ class HiredApplicants extends Component {
                                 filterCity={this.props.filterCity}
                                 filterName={this.props.filterName}
                                 requiredStatus={this.props.requiredStatus}
+                                nextStatus={this.props.nextStatus}
+                                previousStatus={this.props.previousStatus}
                 />
             </div>
         );

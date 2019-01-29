@@ -6,6 +6,8 @@ import CrewApplicants from './components/CrewApplicants';
 import Form from "./components/Form"
 import config from './config';
 
+let applicStatus = ['Applied','Interviewing','Hired'];
+
 class App extends Component {
 
     /*geting Filter Data*/
@@ -37,6 +39,67 @@ class App extends Component {
         }
     };
 
+    previousStatus = async (i)  => {
+        i.preventDefault();
+        function checkingStatusLeft(currentStatusLeft) {
+            switch (currentStatusLeft) {
+                case 'Hired':
+                    return 'Interviewing';
+                case 'Interviewing':
+                    return 'Applied';
+                default:
+            }
+        }
+        this.setState({ candidates: this.state.candidates.map((e,i)=>{
+                if (this.state.candidates[i].status !== 'Applied') {
+                    let applicant = {
+                        id: this.state.candidates[i].id,
+                        avatar: this.state.candidates[i].avatar,
+                        name: {
+                            'titleName': this.state.candidates[i].name.titleName,
+                            'firstName': this.state.candidates[i].name.firstName,
+                            'lastName': this.state.candidates[i].name.lastName,
+                        },
+                        city: this.state.candidates[i].city,
+                        status: checkingStatusLeft(this.state.candidates[i].status)
+                    };
+                    return applicant;
+                }  else {
+                    return e;
+                }
+            })});
+    };
+    nextStatus = async (i) => {
+        i.preventDefault();
+        function checkingStatusRight(currentStatusRight) {
+            switch (currentStatusRight) {
+                case 'Applied':
+                    return 'Interviewing';
+                case 'Interviewing':
+                    return 'Hired';
+                default:
+            }
+        }
+        this.setState({ candidates: this.state.candidates.map((e,i)=>{
+                if (this.state.candidates[i].status !== 'Hired') {
+                    let applicant = {
+                        id: this.state.candidates[i].id,
+                        avatar: this.state.candidates[i].avatar,
+                        name: {
+                            'titleName': this.state.candidates[i].name.titleName,
+                            'firstName': this.state.candidates[i].name.firstName,
+                            'lastName': this.state.candidates[i].name.lastName,
+                        },
+                        city: this.state.candidates[i].city,
+                        status: checkingStatusRight(this.state.candidates[i].status)
+                    };
+                    return applicant;
+                } else {
+                    return e;
+                }
+            })});
+    };
+
     /*Initialisation of state*/
     constructor(props){
         super(props);
@@ -55,14 +118,14 @@ class App extends Component {
                 candidates: res.data.results.map( function(el) {
                     let applicant = {
                         id: el.cell,
-                        city: el.location.city,
+                        avatar: el.picture.medium,
                         name: {
                             'titleName': el.name.title,
                             'firstName': el.name.first,
                             'lastName': el.name.last,
                         },
-                        avatar: el.picture.medium,
-                        status: 'Interviewing'
+                        city: el.location.city,
+                        status: applicStatus[0]
                     };
                     return applicant;
                 })
@@ -77,6 +140,8 @@ class App extends Component {
               <CrewApplicants crewApplicants={this.state.candidates}
                               filterCity={this.state.filterCity}
                               filterName={this.state.filterName}
+                              nextStatus={this.nextStatus}
+                              previousStatus={this.previousStatus}
               />
           </div>
         );
