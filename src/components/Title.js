@@ -11,7 +11,7 @@ class Title extends Component {
             <div>
                 <nav className="nav-extended grey darken-3">
                     <div className="nav-wrapper">
-                        <a href="/"><h3 className="center-align" style={titleStyle}>Crew Applicants</h3></a>
+                        <a href="/"><h3 className="center-align" style={titleStyle}>Crew applications</h3></a>
                     </div>
                 </nav>
             </div>

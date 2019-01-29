@@ -1,4 +1,4 @@
-# Crew-app (test)
+# Crew applications (test)
 
 Author: Serhii Vekshyn
 
