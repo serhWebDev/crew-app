@@ -14,8 +14,8 @@ class App extends Component {
     constructor(props){
         super(props);
         this.state = {
-            filterCity: 'nofilt',
-            filterName: 'nofilt',
+            filterCity: '',
+            filterName: '',
             candidates: []
         };
     };
@@ -28,7 +28,7 @@ class App extends Component {
         /*checking City*/
         if (filterCity === '') {
             this.setState({
-                filterCity: 'nofilt'
+                filterCity: ''
             })
         } else {
             this.setState({
@@ -40,7 +40,7 @@ class App extends Component {
         /*checking Name*/
         if (filterName === '') {
             this.setState({
-                filterName: 'nofilt'
+                filterName: ''
             })
         } else {
             this.setState({
