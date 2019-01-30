@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 const textStyle = {
     textTransform: 'capitalize'
 };
-var arrowStyle = {
+const arrowStyle = {
     backgroundColor: '#e0e0e0',
     color: '#424242',
     borderRadius: '50%'
@@ -26,7 +26,7 @@ class CrewApplicantCard extends Component {
                         <div className="col s12 m7">
                             <h6 style={textStyle}><b>{this.props.firstname} {this.props.lastname}</b></h6>
                             <p style={textStyle}>{this.props.city}</p>
-                            <p>Status: <span>{this.state.status}</span></p>
+                            {/*<p>Status: <span>{this.state.status}</span></p>*/}
 
                                 <i className="material-icons left"
                                    onClick={this.props.previousStatus}
@@ -42,4 +42,5 @@ class CrewApplicantCard extends Component {
         );
     }
 }
+
 export default CrewApplicantCard;

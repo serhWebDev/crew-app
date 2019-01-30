@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-/*import of components*/
+
 import CrewApplicantCard from "./CrewApplicantCard";
 
 class ApplicantsList extends Component {
@@ -17,7 +17,17 @@ class ApplicantsList extends Component {
         let filterName = this.props.filterName;
 
         return this.props.crewApplicants.map((e, i) => {
-            if (requiredStatus === e.status && ((filterCity === 'nofilt' || filterCity === e.city) && (filterName === 'nofilt' || filterName === e.name.firstName))) {
+            if (requiredStatus === e.status &&
+                ((filterCity === 'nofilt' ||
+                    filterCity === e.city) &&
+                    (filterName === 'nofilt' ||
+                        (filterName === e.name.firstName ||
+                            filterName === e.name.lastName ||
+                            filterName ===  e.name.firstName + ' ' + e.name.lastName
+                        )
+                    )
+                )
+            ) {
                 return (<CrewApplicantCard
                         key={e.id}
                         id={e.id}
@@ -34,4 +44,5 @@ class ApplicantsList extends Component {
         })
     }
 }
+
 export default ApplicantsList;
