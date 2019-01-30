@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+import config from './config';
+
 import Title from './components/Title';
 import CrewApplicants from './components/CrewApplicants';
 import Form from "./components/Form"
-import config from './config';
 
 let applicStatus = ['Applied','Interviewing','Hired'];
 
