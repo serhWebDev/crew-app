@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-/*import of components*/
+
 import CrewApplicantCard from "./CrewApplicantCard";
 
 class ApplicantsList extends Component {
@@ -44,4 +44,5 @@ class ApplicantsList extends Component {
         })
     }
 }
+
 export default ApplicantsList;

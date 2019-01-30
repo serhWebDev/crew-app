@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-/*import of components*/
+
 import Title from './components/Title';
 import CrewApplicants from './components/CrewApplicants';
 import Form from "./components/Form"
@@ -9,6 +9,16 @@ import config from './config';
 let applicStatus = ['Applied','Interviewing','Hired'];
 
 class App extends Component {
+
+    /*Initialisation of state*/
+    constructor(props){
+        super(props);
+        this.state = {
+            filterCity: 'nofilt',
+            filterName: 'nofilt',
+            candidates: []
+        };
+    };
 
     /*geting Filter Data*/
     getFilterData = async (e) => {
@@ -69,6 +79,7 @@ class App extends Component {
                 }
             })});
     };
+
     nextStatus = async (e) => {
         e.preventDefault();
         function checkingStatusRight(currentStatusRight) {
@@ -98,16 +109,6 @@ class App extends Component {
                     return e;
                 }
             })});
-    };
-
-    /*Initialisation of state*/
-    constructor(props){
-        super(props);
-        this.state = {
-            filterCity: 'nofilt',
-            filterName: 'nofilt',
-            candidates: []
-        };
     };
 
     /*geting API Data*/
@@ -151,7 +152,7 @@ class App extends Component {
           </div>
         );
       }
-};
+}
 
 export default App;
 

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 const textStyle = {
     textTransform: 'capitalize'
 };
-var arrowStyle = {
+const arrowStyle = {
     backgroundColor: '#e0e0e0',
     color: '#424242',
     borderRadius: '50%'
@@ -42,4 +42,5 @@ class CrewApplicantCard extends Component {
         );
     }
 }
+
 export default CrewApplicantCard;

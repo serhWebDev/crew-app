@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-/*import of components*/
+
 import ApplicantsList from "./ApplicantsList";
 
 class InterviewingApplicants extends Component {
@@ -18,4 +18,5 @@ class InterviewingApplicants extends Component {
         );
     }
 }
+
 export default InterviewingApplicants;
