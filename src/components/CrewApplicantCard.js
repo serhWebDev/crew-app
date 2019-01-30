@@ -30,11 +30,11 @@ class CrewApplicantCard extends Component {
                             {/*<p>Status: <span>{this.state.status}</span></p>*/}
 
                                 <i className="material-icons left"
-                                   onClick={this.props.previousStatus}
+                                   onClick={this.props.previousStatus.bind(this, this.props.id)}
                                    style={arrowStyle}>keyboard_arrow_left</i>
 
                                 <i className="material-icons right"
-                                   onClick={this.props.nextStatus}
+                                   onClick={this.props.nextStatus.bind(this, this.props.id)}
                                    style={arrowStyle}>keyboard_arrow_right</i>
                         </div>
                     </div>

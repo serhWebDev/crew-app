@@ -31,7 +31,7 @@ class ApplicantsList extends Component {
             ) {
                 return (<CrewApplicantCard
                         key={e.id}
-                        id={e.id}
+                        id={i}
                         picture={e.avatar}
                         firstName={e.name.firstName}
                         lastName={e.name.lastName}
@@ -39,6 +39,7 @@ class ApplicantsList extends Component {
                         status={e.status}
                         nextStatus={this.props.nextStatus}
                         previousStatus={this.props.previousStatus}
+                        idLeftRight={this.props.idLeftRight === i}
                     />
                 )
             }

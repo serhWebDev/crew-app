@@ -14,6 +14,7 @@ class HiredApplicants extends Component {
                                 requiredStatus={this.props.requiredStatus}
                                 nextStatus={this.props.nextStatus}
                                 previousStatus={this.props.previousStatus}
+                                idLeftRight={this.props.idLeftRight}
                 />
             </div>
         );

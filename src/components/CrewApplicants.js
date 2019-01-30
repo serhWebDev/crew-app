@@ -17,6 +17,7 @@ class CrewApplicants extends Component {
                                        filterName={this.props.filterName}
                                        nextStatus={this.props.nextStatus}
                                        previousStatus={this.props.previousStatus}
+                                       idLeftRight={this.props.idLeftRight}
                     />
                     <InterviewingApplicants requiredStatus={'Interviewing'}
                                             crewApplicants={this.props.crewApplicants}
@@ -24,6 +25,7 @@ class CrewApplicants extends Component {
                                             filterName={this.props.filterName}
                                             nextStatus={this.props.nextStatus}
                                             previousStatus={this.props.previousStatus}
+                                            idLeftRight={this.props.idLeftRight}
                     />
                     <HiredApplicants requiredStatus={'Hired'}
                                      crewApplicants={this.props.crewApplicants}
@@ -31,6 +33,7 @@ class CrewApplicants extends Component {
                                      filterName={this.props.filterName}
                                      nextStatus={this.props.nextStatus}
                                      previousStatus={this.props.previousStatus}
+                                     idLeftRight={this.props.idLeftRight}
 
                     />
                 </div>

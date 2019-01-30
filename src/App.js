@@ -16,7 +16,8 @@ class App extends Component {
         this.state = {
             filterCity: '',
             filterName: '',
-            candidates: []
+            candidates: [],
+            idLeftRight: null
         };
     };
 
@@ -49,8 +50,8 @@ class App extends Component {
         }
     };
 
-    previousStatus = async (e)  => {
-        e.preventDefault();
+    previousStatus = (i) => {
+        this.setState({idLeftRight: i});
         function checkingStatusLeft(currentStatusLeft) {
             switch (currentStatusLeft) {
                 case 'Hired':
@@ -60,18 +61,18 @@ class App extends Component {
                 default:
             }
         }
-        this.setState({ candidates: this.state.candidates.map((e,i)=>{
-                if (this.state.candidates[i].status !== 'Applied') {
+        this.setState({ candidates: this.state.candidates.map((e,idArr)=>{
+                if (this.state.candidates[idArr].status !== 'Applied' && i === idArr) {
                     let applicant = {
-                        id: this.state.candidates[i].id,
-                        avatar: this.state.candidates[i].avatar,
+                        id: this.state.candidates[idArr].id,
+                        avatar: this.state.candidates[idArr].avatar,
                         name: {
-                            'titleName': this.state.candidates[i].name.titleName,
-                            'firstName': this.state.candidates[i].name.firstName,
-                            'lastName': this.state.candidates[i].name.lastName,
+                            'titleName': this.state.candidates[idArr].name.titleName,
+                            'firstName': this.state.candidates[idArr].name.firstName,
+                            'lastName': this.state.candidates[idArr].name.lastName,
                         },
-                        city: this.state.candidates[i].city,
-                        status: checkingStatusLeft(this.state.candidates[i].status)
+                        city: this.state.candidates[idArr].city,
+                        status: checkingStatusLeft(this.state.candidates[idArr].status)
                     };
                     return applicant;
                 }  else {
@@ -80,8 +81,8 @@ class App extends Component {
             })});
     };
 
-    nextStatus = async (e) => {
-        e.preventDefault();
+    nextStatus = (i) => {
+        this.setState({idLeftRight: i});
         function checkingStatusRight(currentStatusRight) {
             switch (currentStatusRight) {
                 case 'Applied':
@@ -91,18 +92,18 @@ class App extends Component {
                 default:
             }
         }
-        this.setState({ candidates: this.state.candidates.map((e,i)=>{
-                if (this.state.candidates[i].status !== 'Hired') {
+        this.setState({ candidates: this.state.candidates.map((e,idArr)=>{
+                if (this.state.candidates[idArr].status !== 'Hired' && i === idArr) {
                     let applicant = {
-                        id: this.state.candidates[i].id,
-                        avatar: this.state.candidates[i].avatar,
+                        id: this.state.candidates[idArr].id,
+                        avatar: this.state.candidates[idArr].avatar,
                         name: {
-                            'titleName': this.state.candidates[i].name.titleName,
-                            'firstName': this.state.candidates[i].name.firstName,
-                            'lastName': this.state.candidates[i].name.lastName,
+                            'titleName': this.state.candidates[idArr].name.titleName,
+                            'firstName': this.state.candidates[idArr].name.firstName,
+                            'lastName': this.state.candidates[idArr].name.lastName,
                         },
-                        city: this.state.candidates[i].city,
-                        status: checkingStatusRight(this.state.candidates[i].status)
+                        city: this.state.candidates[idArr].city,
+                        status: checkingStatusRight(this.state.candidates[idArr].status)
                     };
                     return applicant;
                 } else {
@@ -148,6 +149,7 @@ class App extends Component {
                               filterName={this.state.filterName}
                               nextStatus={this.nextStatus}
                               previousStatus={this.previousStatus}
+                              idLeftRight={this.state.idLeftRight}
               />
           </div>
         );
