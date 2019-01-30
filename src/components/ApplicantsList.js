@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import CrewApplicantCard from "./CrewApplicantCard";
 
@@ -32,8 +33,8 @@ class ApplicantsList extends Component {
                         key={e.id}
                         id={e.id}
                         picture={e.avatar}
-                        firstname={e.name.firstName}
-                        lastname={e.name.lastName}
+                        firstName={e.name.firstName}
+                        lastName={e.name.lastName}
                         city={e.city}
                         status={e.status}
                         nextStatus={this.props.nextStatus}
@@ -44,5 +45,14 @@ class ApplicantsList extends Component {
         })
     }
 }
+
+ApplicantsList.propTypes = {
+    crewApplicants: PropTypes.array.isRequired,
+    filterCity: PropTypes.string.isRequired,
+    filterName: PropTypes.string.isRequired,
+    requiredStatus: PropTypes.string.isRequired,
+    nextStatus: PropTypes.func.isRequired,
+    previousStatus: PropTypes.func.isRequired,
+};
 
 export default ApplicantsList;

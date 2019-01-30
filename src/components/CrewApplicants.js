@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import AppliedApplicants from './AppliedApplicants';
 import InterviewingApplicants from './InterviewingApplicants';
@@ -37,5 +38,13 @@ class CrewApplicants extends Component {
         );
     }
 }
+
+CrewApplicants.propTypes = {
+    crewApplicants: PropTypes.array.isRequired,
+    filterName: PropTypes.string.isRequired,
+    filterCity: PropTypes.string.isRequired,
+    nextStatus: PropTypes.func.isRequired,
+    previousStatus: PropTypes.func.isRequired,
+};
 
 export default CrewApplicants;

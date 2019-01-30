@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from "prop-types";
 
 const textStyle = {
     textTransform: 'capitalize'
@@ -24,7 +25,7 @@ class CrewApplicantCard extends Component {
                             <img src={this.props.picture} alt="userPic" className="circle"/>
                         </div>
                         <div className="col s12 m7">
-                            <h6 style={textStyle}><b>{this.props.firstname} {this.props.lastname}</b></h6>
+                            <h6 style={textStyle}><b>{this.props.firstName} {this.props.lastName}</b></h6>
                             <p style={textStyle}>{this.props.city}</p>
                             {/*<p>Status: <span>{this.state.status}</span></p>*/}
 
@@ -42,5 +43,15 @@ class CrewApplicantCard extends Component {
         );
     }
 }
+
+CrewApplicantCard.propTypes = {
+    previousStatus: PropTypes.func.isRequired,
+    nextStatus: PropTypes.func.isRequired,
+    picture: PropTypes.string.isRequired,
+    firstName: PropTypes.string.isRequired,
+    lastName: PropTypes.string.isRequired,
+    city: PropTypes.string.isRequired,
+    status: PropTypes.string.isRequired,
+};
 
 export default CrewApplicantCard;
