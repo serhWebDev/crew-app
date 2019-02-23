@@ -1,15 +1,32 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Crew app",
+  "name": "Crew applications",
+  "description": "Crew app by serhiiVek",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "src": "img/icon36x36.png",
+      "sizes": "36x36",
+      "type": "image/png"
+    }, {
+      "src": "img/icon72x72.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    }, {
+      "src": "img/icon144x144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    }, {
+      "src": "img/icon192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }, {
+      "src": "img/icon512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
     }
   ],
   "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "display": "fullscreen",
+  "theme_color": "#7CFC00",
+  "background_color": "#424242"
 }

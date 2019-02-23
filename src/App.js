@@ -17,7 +17,7 @@ class App extends Component {
             filterCity: '',
             filterName: '',
             candidates: [],
-            idLeftRight: null
+            idLeftRight: null,
         };
     };
 
@@ -142,8 +142,9 @@ class App extends Component {
     render(){
         return (
           <div>
-              <Title/>
-              <Form getFilterData={this.getFilterData}/>
+              <Title />
+              <Form getFilterData={this.getFilterData}
+                    allGeo={this.state.candidates} />
               <CrewApplicants crewApplicants={this.state.candidates}
                               filterCity={this.state.filterCity}
                               filterName={this.state.filterName}
