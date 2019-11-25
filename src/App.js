@@ -140,7 +140,8 @@ class App extends Component {
         } = this.state;
         return (
           <div>
-              <Navbar />
+              <Navbar
+                  title={'Crew app'}/>
               <Form getFilterData={this.getFilterData}
                     allGeo={candidates} />
               <CrewApplicants crewApplicants={this.state.candidates}

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
 import ApplicantsList from "./ApplicantsList";
 
@@ -20,15 +19,6 @@ class AppliedApplicants extends Component {
         );
     }
 }
-
-AppliedApplicants.propTypes = {
-    crewApplicants: PropTypes.array.isRequired,
-    filterCity: PropTypes.string.isRequired,
-    filterName: PropTypes.string.isRequired,
-    requiredStatus: PropTypes.string.isRequired,
-    nextStatus: PropTypes.func.isRequired,
-    previousStatus: PropTypes.func.isRequired,
-};
 
 export default AppliedApplicants;
 
