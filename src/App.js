@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import config from './config';
-import Title from './components/Title';
+import Navbar from './components/Navbar';
 import CrewApplicants from './components/CrewApplicants';
 import Form from "./components/Form"
 
@@ -21,10 +21,8 @@ class App extends Component {
         };
     };
 
-    /*geting Filter Data*/
     getFilterData = async (e) => {
         e.preventDefault();
-        /*geting filterCity*/
         const filterCity = e.target.elements.filterCity.value.toLowerCase();
         /*checking City*/
         if (filterCity === '') {
@@ -36,9 +34,7 @@ class App extends Component {
                 filterCity: filterCity
             })
         }
-        /*geting filterName*/
         const filterName = e.target.elements.filterName.value.toLowerCase();
-        /*checking Name*/
         if (filterName === '') {
             this.setState({
                 filterName: ''
@@ -112,8 +108,7 @@ class App extends Component {
             })});
     };
 
-    /*geting API Data*/
-    componentWillMount() {
+    componentDidMount() {
         /*Data sources URL:*/
         function randomApplicantStatus(firstStatusId, lastStatusId) {
             var rand = firstStatusId + Math.random() * (lastStatusId - firstStatusId);
@@ -140,11 +135,14 @@ class App extends Component {
     }
 
     render(){
+        const {
+            candidates
+        } = this.state;
         return (
           <div>
-              <Title />
+              <Navbar />
               <Form getFilterData={this.getFilterData}
-                    allGeo={this.state.candidates} />
+                    allGeo={candidates} />
               <CrewApplicants crewApplicants={this.state.candidates}
                               filterCity={this.state.filterCity}
                               filterName={this.state.filterName}
