@@ -13,9 +13,6 @@ class Form extends Component {
                             <FilterName />
                             <FilterCity allGeo={this.props.allGeo}/>
                         </div>
-                        <div className="center">
-                            <button className="waves-effect green lighten-2 btn">Filter</button>
-                        </div>
                     </form>
                 </div>
             </div>
