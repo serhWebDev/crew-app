@@ -30,7 +30,7 @@ Project structure
 |-----------------------|--------------------------------------------------------------------
 |config                 | Сonfiguration file, URL for getting response by API
 |App                    | Main component
-|Title                  | Title (application name)
+|Navbar                  | Navbar (application name)
 |Form                   | Filter form. Filter by city and first name
 |CrewApplicants         | Component for showing lists of applicants from all category.
 |AppliedApplicants      | Component for showing applied applicants
