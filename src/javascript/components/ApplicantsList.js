@@ -8,14 +8,14 @@ class ApplicantsList extends Component {
             requiredStatus
         } = this.props;
 
-        return crewApplicants.map(element => {
+        return crewApplicants.map((element,id) => {
             if (requiredStatus === element.status ) {
                 return (
                     <UiCard
+                        key={id}
                         id={element.id}
                         picture={element.avatar}
-                        firstName={element.name.firstName}
-                        lastName={element.name.lastName}
+                        name={element.name.name}
                         city={element.city}
                         status={element.status}
                         statusChange={(id, action) => this.props.statusChange(id, action)}

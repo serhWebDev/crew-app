@@ -1,23 +1,24 @@
-import React, { Component } from 'react';
-import FilterName from './FilterName';
-import FilterCity from './FilterCity';
+import React from 'react';
+import Input from './Input';
 
-class Form extends Component {
-    render() {
-        return (
-            <div>
-                <div className='card-panel'>
-                    <form onSubmit={this.props.getFilterData}>
-                        <h6 className='center-align'><b>Filter</b></h6>
-                        <div className={'row'} >
-                            <FilterName />
-                            <FilterCity allGeo={this.props.allGeo}/>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        );
-    }
-}
+const Form = (props) => (
+    <form>
+        <h6 className='center-align'><b>Filter</b></h6>
+        <div className={'row'} >
+            <Input
+                name={'city'}
+                label={'City'}
+                className={'col s12 m6'}
+                placeholder={'City'}
+                onChange={(type,value) => props.onChange(type, value)} />
+            <Input
+                name={'name'}
+                label={'Name'}
+                className={'col s12 m6'}
+                placeholder={'Name'}
+                onChange={(type,value) => props.onChange(type, value)} />
+        </div>
+    </form>
+);
 
 export default Form;
