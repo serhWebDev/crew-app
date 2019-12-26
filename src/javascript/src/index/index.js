@@ -4,7 +4,7 @@ import {
     apiPath,
     applicantsStatuses
 } from './config';
-import normalozer from './normalizer';
+import normalizer from './normalizer';
 import CrewApplicants from '../../components/CrewApplicants';
 import Form from '../../components/Form'
 
@@ -14,7 +14,11 @@ class Index extends Component {
         super(props);
         this.state = {
             isLoading: false,
-            candidates: []
+            candidates: [],
+            filters: {
+                city: null,
+                name: null
+            }
         };
     };
 
@@ -36,26 +40,38 @@ class Index extends Component {
         })
         this.setState({ candidates: newCandidates })
     };
+
     fetchAssets() {
         const requestData = '?nat=gb&results=10';
         axios.get(apiPath + requestData)
             .then(res => {
-                const candidates = res.data.results.map( el => normalozer(el));
+                const candidates = res.data.results.map( el => normalizer(el));
                 this.setState({
                     candidates: candidates
                 })
             })
             .finally(() => this.setState({isLoading: false}));
     }
+
     componentDidMount() {
         this.setState({isLoading: true});
         this.fetchAssets();
     }
 
+    filterData(type, value) {
+        this.setState({
+            filters: {
+                ...this.state.filters,
+                [type]:value
+            }
+        })
+    }
+
     render(){
         const {
             candidates,
-            isLoading
+            isLoading,
+            filters
         } = this.state;
 
         if (isLoading) {
@@ -65,16 +81,23 @@ class Index extends Component {
                 </div>
             )
         }
+
+        const sorterModels = candidates.filter(item => {
+            if (!!filters.city && !item.city.includes(filters.city)) {
+                return false;
+            }
+            if (!!filters.name && !item.name.name.includes(filters.name)) {
+                return false;
+            }
+            return true;
+        });
+
         return (
             <div>
-                {false && (
-                    <Form
-                        getFilterData={this.getFilterData}
-                        allGeo={candidates} />
-                )}
+                <Form onChange={(type, value)=> this.filterData(type, value)} />
                 <CrewApplicants
                     applicantsStatuses={applicantsStatuses}
-                    crewApplicants={candidates}
+                    crewApplicants={sorterModels}
                     statusChange={(id, action) => this.statusChange(id, action)}
                 />
             </div>
